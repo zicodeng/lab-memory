@@ -23,6 +23,11 @@ public class BirdActivity extends AppCompatActivity {
                 startActivity(new Intent(BirdActivity.this, BlankBirdActivity.class));
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
 
         /* Set up image */
         Drawable image = ContextCompat.getDrawable(this, R.drawable.hummingbird); //get the drawable resource
@@ -30,4 +35,12 @@ public class BirdActivity extends AppCompatActivity {
         birdView.setImageDrawable(image);
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        Drawable image = null;
+        ImageView birdView = (ImageView)findViewById(R.id.imgBird);
+        birdView.setImageDrawable(image);
+    }
 }
